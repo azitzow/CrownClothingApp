@@ -32,6 +32,8 @@ export const Home = () => {
   ];
 
   return (
-    <Directory categories={ categories } />
+    <div className="homepage">
+      <Directory categories={ categories } />
+    </div>
   );
 }
