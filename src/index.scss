@@ -9,3 +9,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// * selects everything and what we are doing here is adding the border box to everything so that the width and height of the element is the width and height that we set it to be.
