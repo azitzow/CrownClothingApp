@@ -1,18 +1,17 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { FormInput } from "../form-input/form-input.component";
+import { Button } from "../button/button.component";
+import "./sign-in-form.styles.scss";
 
-import { FormInput } from '../form-input/form-input.component';
-import { Button } from '../button/button.component';
 import {
   createUserDocumentFromAuth,
   signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword
-} from '../../utils/firebase/firebase.utils';
-
-import './sign-in-form.styles.scss';
+  signInAuthUserWithEmailAndPassword,
+} from "../../utils/firebase/firebase.utils";
 
 const defaultFormFields = {
-  email: '',
-  password: '',
+  email: "",
+  password: "",
 };
 
 export const SignInForm = () => {
@@ -36,15 +35,15 @@ export const SignInForm = () => {
       setFormFields(defaultFormFields);
     } catch (error) {
       switch (error.code) {
-        case 'auth/user-not-found':
-          alert('User not found');
+        case "auth/user-not-found":
+          alert("User not found");
           break;
-        case 'auth/wrong-password':
-          alert('Incorrect password');
+        case "auth/wrong-password":
+          alert("Incorrect password");
           break;
         default:
-          alert('Error signing in');
-          console.log('Error signing in', error);
+          alert("Error signing in");
+          console.log("Error signing in", error);
       }
     }
   };
@@ -78,9 +77,10 @@ export const SignInForm = () => {
         />
         <div className="buttons-container">
           <Button type="submit">Sign In</Button>
-          <Button type="button" buttonType="google" onClick={signInWithGoogle}>Google sign in</Button>
+          <Button type="button" buttonType="google" onClick={signInWithGoogle}>
+            Google sign in
+          </Button>
         </div>
-
       </form>
     </div>
   );

@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import { FormInput } from '../form-input/form-input.component';
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
-import { Button } from '../button/button.component';
+import { useState } from "react";
+import { FormInput } from "../form-input/form-input.component";
+import { Button } from "../button/button.component";
 import "./sign-up-form.styles.scss";
 
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from "../../utils/firebase/firebase.utils";
+
 const defaultFormFields = {
-  displayName: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
+  displayName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
 };
 
 export const SignUpForm = () => {
@@ -17,12 +21,12 @@ export const SignUpForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // TODO: Add validation
+
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-    // TODO: Add error handling
+
     try {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
@@ -32,10 +36,10 @@ export const SignUpForm = () => {
       await createUserDocumentFromAuth(user, { displayName });
       setFormFields(defaultFormFields);
     } catch (error) {
-      if(error.code === 'auth/email-already-in-use') {
-        alert('Cannot create user, email already in use');
+      if (error.code === "auth/email-already-in-use") {
+        alert("Cannot create user, email already in use");
       } else {
-        alert('Error creating user');
+        alert("Error creating user");
         console.log("User creation encountered an error", error);
       }
     }
@@ -51,7 +55,6 @@ export const SignUpForm = () => {
       <h2 className="title">Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit} className="sign-up-form">
-
         <FormInput
           label="Display Name"
           type="text"
@@ -92,4 +95,4 @@ export const SignUpForm = () => {
       </form>
     </div>
   );
-}
+};

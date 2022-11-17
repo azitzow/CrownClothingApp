@@ -1,6 +1,6 @@
-import { Outlet, Link } from 'react-router-dom';
-import { Fragment } from 'react';
-import { ReactComponent as CrownLogo } from '../../../assets/crown.svg';
+import { Outlet, Link } from "react-router-dom";
+import { Fragment } from "react";
+import { ReactComponent as CrownLogo } from "../../../assets/crown.svg";
 import "./navigation.styles.scss";
 
 export const Navigation = () => {
@@ -21,11 +21,11 @@ export const Navigation = () => {
             SIGN IN
           </Link>
           <Link className="nav-link" to="/cart">
-            CART
+            CARTLOGO
           </Link>
         </div>
       </div>
       <Outlet />
     </Fragment>
   );
-}
+};

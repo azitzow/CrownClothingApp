@@ -5,12 +5,12 @@ import { Authentication } from "./components/routes/authentication/authenticatio
 
 export const App = () => {
   return (
-      <Routes>
-        <Route path="/" element={<Navigation />} >
-          <Route index element={<Home />} />
-          <Route path="shop" element={<h1>Shop</h1>} />
-          <Route path="auth" element={<Authentication />} />
-        </Route>
-      </Routes>
-    );
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path="shop" element={<h1>Shop</h1>} />
+        <Route path="auth" element={<Authentication />} />
+      </Route>
+    </Routes>
+  );
 };
