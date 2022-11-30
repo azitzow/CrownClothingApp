@@ -9,6 +9,8 @@ export const App = () => {
       <Route path="/" element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<h1>Shop</h1>} />
+        <Route path="contact" element={<h1>Contact</h1>} />
+        <Route path="shopping-cart" element={<h1>Shoping cart page!</h1>} />
         <Route path="auth" element={<Authentication />} />
       </Route>
     </Routes>
